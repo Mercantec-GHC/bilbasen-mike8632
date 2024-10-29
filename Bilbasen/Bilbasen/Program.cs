@@ -1,41 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 public class Car
 {
-    private string _Brand;
-    private string _Model;
-    private int _Year;
-    private string _Color { get; set; }
-    private int _HorsePower;
-    
-    public string Brand
-    {
-        get { return _Brand; }
-        private set { _Brand = value; }
-    }
-    public string Model
-    {
-        get { return _Model; }
-        private set { _Model = value; }
-    }
-    public int Year
-    {
-        get { return _Year; }
-        private set { _Year = value; }
-    }
+    public string Brand { get; private set; }
+    public string Model { get; private set; }
+    public int Year { get; private set; }
 
-    public string Color
-    {
-        get { return _Color; }
-        private set {_Color = value; }
-    }
-    public int HorsePower
-    {
-        get { return _HorsePower; }
-        private set { _HorsePower = value; }
-    }
+    public string Color { get; private set; }
+    public int HorsePower { get; private set; }
+
     public Car(string brand, string model, int year, string color, int horsePower)
     {
         Brand = brand;
@@ -45,6 +19,7 @@ public class Car
         HorsePower = horsePower;
     }
 }
+
 public class Program
 {
     public static void Main()
@@ -198,11 +173,14 @@ public class Program
                 Colors++;
             }
         }
+        
+
         foreach (var car in cars)
         {
             if (car.HorsePower > 200)
             {
                 Power++;
+
             }
         }
         Console.WriteLine("\nhow many cars from 1980 to 1999\n");
@@ -227,9 +205,9 @@ public class Program
 
         // Output the result
         Console.WriteLine($"Number of cars with brand: '{brandToSearch}': {Brands}\n");
-        Console.WriteLine($"Number of Colors: '{ColorSearch}': {Colors}\n");
         Console.WriteLine($"How many cars with over 200 HorsePower: {Power} \n");
         Console.WriteLine($"How many cars with the same brand as the first car: {First} \n");
-        Console.WriteLine($"how many cars there are {biller}");
+        Console.WriteLine($"how many cars there are {biller}\n");
+        Console.WriteLine($"Number of Colors: '{ColorSearch}': {Colors}\n");
     }
 }
