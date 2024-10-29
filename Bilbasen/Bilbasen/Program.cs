@@ -1,14 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 public class Car
 {
-    public string Brand;
-    public string Model;
-    public int Year;
-    public string Color { get; set; }
-    public int HorsePower;
+    private string _Brand;
+    private string _Model;
+    private int _Year;
+    private string _Color { get; set; }
+    private int _HorsePower;
+    
+    public string Brand
+    {
+        get { return _Brand; }
+        private set { _Brand = value; }
+    }
+    public string Model
+    {
+        get { return _Model; }
+        private set { _Model = value; }
+    }
+    public int Year
+    {
+        get { return _Year; }
+        private set { _Year = value; }
+    }
 
+    public string Color
+    {
+        get { return _Color; }
+        private set {_Color = value; }
+    }
+    public int HorsePower
+    {
+        get { return _HorsePower; }
+        private set { _HorsePower = value; }
+    }
     public Car(string brand, string model, int year, string color, int horsePower)
     {
         Brand = brand;
@@ -18,7 +45,6 @@ public class Car
         HorsePower = horsePower;
     }
 }
-
 public class Program
 {
     public static void Main()
@@ -131,6 +157,7 @@ public class Program
         int Power = 0;
         int First = 0;
         int Year = 0;
+        int biller = 0;
 
         string firstCarBrand = cars[0].Brand;
 
@@ -187,6 +214,13 @@ public class Program
                 Year++;
             }
         }
+        foreach (var car in cars)
+        {
+            if (car.Year > 100)
+            {
+                biller++;
+            }
+        }
         Console.WriteLine($"how many cars from 1980-1999: {Year} \n");
 
 
@@ -196,5 +230,6 @@ public class Program
         Console.WriteLine($"Number of Colors: '{ColorSearch}': {Colors}\n");
         Console.WriteLine($"How many cars with over 200 HorsePower: {Power} \n");
         Console.WriteLine($"How many cars with the same brand as the first car: {First} \n");
+        Console.WriteLine($"how many cars there are {biller}");
     }
 }
